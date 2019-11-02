@@ -8,13 +8,17 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 // It's optional.
 export const theme = createMuiTheme({
   typography: {
-    useNextVariants: true,
-    suppressDeprecationWarnings: true
+    useNextVariants: true
   },
   spacing: {
     unit: 8
-  }
-});
+  },
+  palette: {
+    primary: purple,
+    secondary: {
+      main: '#f44336',
+    },
+},});
 
 function withRoot(Component: typeof React.Component) {
   function WithRoot(props: any) {

@@ -10,6 +10,11 @@ import { bindActionCreators, Dispatch, AnyAction } from "redux";
 import * as actions from "../redux/actions";
 import { RouterProps } from "react-router";
 import { InputProps } from "@material-ui/core/Input";
+import { GoogleLogin } from 'react-google-login';
+
+const responseGoogle = (response) => {
+  console.log(response);
+}
 
 export class Login extends React.Component<
   {
@@ -43,7 +48,7 @@ export class Login extends React.Component<
     return (
       <Layout>
         <MainPaper>
-          <LockAvatar />
+          {/* <LockAvatar />
           <Typography variant="headline">Login</Typography>
           <Form onSubmit={this.submit}>
             <TextField
@@ -55,7 +60,14 @@ export class Login extends React.Component<
             </TextField>
             <Password update={this.update("password")}>Password</Password>
             <SubmitButton>Login</SubmitButton>
-          </Form>
+          </Form> */}
+          <GoogleLogin
+            clientId="1062748514910-vtnfjjb8q5jmgsb6b7ogfg1ujp742h0d.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          />
         </MainPaper>
       </Layout>
     );
